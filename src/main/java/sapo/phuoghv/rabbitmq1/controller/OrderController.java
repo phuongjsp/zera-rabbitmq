@@ -34,6 +34,16 @@ public class OrderController {
             }
             createOrder(order);
         }
+        for (int i = 0; i < 100; i++) {
+            var order = new Order();
+            order.setCode("newCode" + i);
+            order.setShippingUnit(ShippingUnit.SE);
+            if (i % 10 == 0) {
+                order.setCode("VIPPP" + i);
+                order.setVIPPriority(true);
+            }
+            createOrder(order);
+        }
         return ResponseEntity.ok("success");
     }
 
