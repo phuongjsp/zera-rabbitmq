@@ -1,0 +1,20 @@
+server:
+  port: 80
+
+spring:
+  rabbitmq:
+    addresses: ${SERVER}
+    username: guest
+    password: guest
+    port: 5672
+    publisher-returns: on
+
+  application:
+    name: rabitMQ Manager
+sapo:
+  rabbitmq:
+    queue:
+      ghtk: giao-hang-tiet-kiem-queue
+      se: sapo-express-queue
+    exchange:
+      create-order: create-order-exchange
