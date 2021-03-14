@@ -1,0 +1,2 @@
+# zera-rabbitmq
+rabbitmq manager
