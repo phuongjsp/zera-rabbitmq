@@ -5,7 +5,7 @@ RUN mvn -f /otp/app/pom.xml clean package
 FROM python:3.7-alpine3.12
 RUN apk add curl
 FROM openjdk:11-jre-slim
-COPY /target/zera.rabbitmq.manager-1.0-SNAPSHOT.jar /usr/local/lib/app.jar
+COPY --from=build /otp/app/target/zera.rabbitmq.manager-1.0-SNAPSHOT.jar /usr/local/lib/app.jar
 EXPOSE 8081
 
 HEALTHCHECK CMD curl --fail http://localhost:5672 || exit 1
