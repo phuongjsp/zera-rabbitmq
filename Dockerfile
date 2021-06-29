@@ -5,4 +5,5 @@ RUN mvn -f /otp/app/pom.xml clean package
 FROM openjdk:11-jre-slim
 COPY --from=build /otp/app/target/zera.rabbitmq.manager-1.0-SNAPSHOT.jar /usr/local/lib/app.jar
 EXPOSE 8081
+HEALTHCHECK CMD curl --fail http://localhost:5672 || exit 1
 ENTRYPOINT ["java","-jar","/usr/local/lib/app.jar"]
